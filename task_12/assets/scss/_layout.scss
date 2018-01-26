@@ -28,6 +28,8 @@ a:visited {
 
 header {
   background: $black;
+  background-image: url('../img/i-like-food.svg');
+  background-attachment: fixed;
   width: 100vw;
   display: grid;
   grid-template-columns: 250px minmax(200px, 1fr) 250px;
@@ -133,9 +135,11 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 16px;
   background: $black;
-  padding: 20px 10px;
+  background-image: url('../img/i-like-food.svg');
+  background-attachment: fixed;
+  padding: 50px 10px;
 }
 
 .footer--address {
