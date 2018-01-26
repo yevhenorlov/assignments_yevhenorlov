@@ -1,5 +1,6 @@
 "use strict;";
 
+// move to a separate helpers library later
 Number.prototype.pad = function(size) {
   var s = String(this);
   while (s.length < (size || 2)) {
@@ -13,9 +14,9 @@ Number.prototype.pad = function(size) {
 
   function updateClock(clock) {
     var d = new Date(),
-      h = d.getHours().pad(2),
-      m = d.getMinutes().pad(2),
-      s = d.getSeconds().pad(2),
+      h = d.getHours().pad(),
+      m = d.getMinutes().pad(),
+      s = d.getSeconds().pad(),
       time = `${h}:${m}:${s}`;
     clock.innerHTML = time;
   }

@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   text-align: center;
-  padding: 20px 40px 18px;
+  padding: 20px 40px;
   border-radius: 10px;
   border: 3px solid $white;
   overflow: hidden;
@@ -34,6 +34,7 @@
     left: -50%;
     transition: $transition-time;
     transform: rotateZ(-30deg) translateY(200%);
+    will-change: transform;
   }
   &:hover,
   &:focus {
@@ -44,13 +45,13 @@
   }
 }
 
-%visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-}
+// %visually-hidden {
+//   position: absolute;
+//   overflow: hidden;
+//   clip: rect(0 0 0 0);
+//   height: 1px;
+//   width: 1px;
+//   margin: -1px;
+//   padding: 0;
+//   border: 0;
+// }
