@@ -27,13 +27,12 @@
     content: "";
     position: absolute;
     background: $black;
-    background-blend-mode: multiply;
     width: 200%;
-    height: 200%;
+    height: 100%;
     top: 0;
-    left: -50%;
+    left: 0;
     transition: $transition-time;
-    transform: rotateZ(-30deg) translateY(200%);
+    transform: rotateZ(-90deg) translateY(100%);
     will-change: transform;
   }
   &:hover,
