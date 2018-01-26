@@ -14,11 +14,14 @@
   color: $black;
   background: $white;
   cursor: pointer;
-  span {
+  > span {
     position: relative;
     z-index: 2;
     color: inherit;
     transition: $transition-time;
+  }
+  .icon {
+    font-size: 20px;
   }
   &::after {
     content: "";
