@@ -97,11 +97,9 @@ main{
   position: relative;
   padding: 15px 30px;
   border-radius: 5px;
-  // box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: 2;
-  grid-template-rows: 3;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   background: $black;
   color: $white;
