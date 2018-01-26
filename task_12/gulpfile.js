@@ -2,8 +2,8 @@
 'use strict';
 
 var gulp = require('gulp'),
-    webserver = require('gulp-webserver'),
-    // browsersync = require('browser-sync'),
+    browsersync = require('browser-sync'),
+    browserSync = require('browser-sync').create(),
     livereload = require('gulp-livereload'),
     autoprefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
@@ -11,17 +11,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     watch = require('gulp-watch'),
     colors = require('colors'),
-    connect = require('gulp-connect'),
     notify = require('gulp-notify');
-
-// Connect
-gulp.task('connect', function () {
-    connect.server({
-        root: '',
-        port: '8000',
-        livereload: true,
-    });
-});
 
 // Html
 
@@ -30,7 +20,19 @@ gulp.task('html', function() {
     .pipe(gulp.dest('build/'));
 })
 
-// Styles
+// Static Server + watching scss/html files
+gulp.task('serve', ['sass'], function() {
+
+    browserSync.init({
+        server: "./build"
+    });
+
+    gulp.watch("build/assets/scss/*.scss", ['sass']);
+    gulp.watch("build/assets/js/*.js", ['scripts']);
+    gulp.watch("build/*.html").on('change', browserSync.reload);
+});
+
+// Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function () {
     gulp.src('assets/scss/style.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', notify.onError()))
@@ -39,8 +41,15 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .pipe(gulp.dest('build/assets/css'))
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
+
+// Scripts
+gulp.task('scripts', function() {
+        gulp.src('assets/js/script.js')
+            .pipe(gulp.dest('build/assets/js'))
+            .pipe(browserSync.stream());
+    });
 
 // Fonts
 gulp.task('fonts', function() {
@@ -63,7 +72,7 @@ gulp.task('Iconfont', function(){
       centerHorizontally: false
     }))
     .pipe(gulp.dest('build/assets/fonts/'))
-    .pipe(connect.reload());
+    .pipe(browserSync.stream());
 });
 
 // images
@@ -89,14 +98,15 @@ gulp.task('rebuild', function () {
 gulp.task('watch', function() {
     gulp.watch(['html-dev/*.html'], ['html']);
     gulp.watch(['assets/scss/**/*.scss'], ['sass']);
-    gulp.watch(['assets/img/icons/*.svg'], ['Iconfont']);
+    gulp.watch(['assets/js/**/*.js'], ['scripts']);
+    // gulp.watch(['assets/img/icons/*.svg'], ['Iconfont']);
     gulp.watch(['assets/fonts/*.*'], ['fonts']);
     gulp.watch(['assets/img/**/*'], ['images']);
 });
 
 
 // Default task
-gulp.task('default', [ 'rebuild', 'connect', 'watch']);
+gulp.task('default', [ 'rebuild', 'serve', 'watch']);
 
 
 

@@ -1,0 +1,141 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $mainFont;
+  font-size: 20px;
+  line-height: 1.4;
+  text-decoration-skip: ink;
+  background: $yellow;
+  color: $white;
+}
+
+a,
+a:visited {
+  color: $yellow;
+  opacity: 0.8;
+  transition: $transition-time;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+header {
+  background: $black;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 250px minmax(200px, 1fr) 250px;
+  align-items: center;
+  justify-items: center;
+  padding: 20px 10px;
+  margin-bottom: 40px;
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > * {
+      margin: 10px 0;
+    }
+    .clock {
+      order: 2;
+    }
+    .logo {
+      display: none;
+    }
+  }
+}
+.clock {
+  justify-self: start;
+  user-select: none;
+  font-family: "Fira Mono", monospace;
+}
+.logo {
+  max-width: 100%;
+  opacity: 0.8;
+  transition: $transition-time;
+  &:hover {
+    opacity: 1;
+  }
+}
+.logo--img {
+  max-width: 300px;
+  width: 100%;
+}
+.login-signup {
+  justify-self: end;
+}
+.login-signup--btn {
+  @extend %btn;
+}
+main{
+  padding: 0 10px;
+}
+.btn__add-pizza {
+  @extend %btn;
+  display: block;
+  background: #cc0000;
+  color: $white;
+  margin: auto;
+  &:hover,
+  &:focus {
+    color: $yellow;
+  }
+}
+.pizzas {
+  padding: 40px 0;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.pizza {
+  position: relative;
+  padding: 15px 30px;
+  border-radius: 5px;
+  // box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 2;
+  grid-template-rows: 3;
+  justify-content: space-between;
+  background: $black;
+  color: $white;
+  font-family: "Lobster", cursive;
+  font-weight: 300;
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-width: 32px 32px 0 0;
+    border-style: solid;
+    border-color: $yellow #000;
+    z-index: 2;
+  }
+}
+
+.pizza--picture {
+  grid-column: span 2;
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid rgba($red, 0.6);
+}
+
+.pizza--queue-number,
+.pizza--price {
+  text-align: right;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 14px;
+  background: $black;
+  padding: 20px 10px;
+}
