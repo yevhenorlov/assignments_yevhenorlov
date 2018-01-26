@@ -1,0 +1,56 @@
+$transition-time: all 0.2s;
+
+// Colors
+
+$aqua: #5FCAC6;
+$aquaDark: #5AA7A9;
+$gray: #ECEEF5;
+$gray2: #F7F7FA;
+$lightBlue: #B3B9D7;
+$blue: #76A5DF;
+$darkBlue: #6F7692;
+$orange: #EDBE76;
+$red: #E17776;
+
+$a: #B9BAC5;
+$e: #8D778F;
+
+
+
+
+
+.pallete{
+  display: flex;
+}
+.clr {
+  width: 100px;
+  height: 100px;
+}
+
+.clr-1 {
+  background-color: $a;
+}
+
+.clr-2 {
+  background-color: $blue;
+}
+
+.clr-3 {
+  background-color: $lightBlue;
+}
+
+.clr-4 {
+  background-color: $darkBlue;
+}
+
+.clr-5 {
+  background-color: $e;
+}
+
+.clr-6 {
+  background-color: $aqua;
+}
+
+.clr-7 {
+  background-color: $aquaDark;
+}
