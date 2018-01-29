@@ -68,20 +68,20 @@ header {
     opacity: 1;
   }
 }
-.logo--img {
+.logo__img {
   max-width: 300px;
   width: 100%;
 }
 .login-signup {
   justify-self: end;
 }
-.login-signup--btn {
+.btn--login-signup {
   @extend %btn;
 }
 main{
   padding: 0 10px;
 }
-.btn__add-pizza {
+.btn--add-pizza {
   @extend %btn;
   display: block;
   background: #cc0000;
@@ -122,15 +122,15 @@ main{
   }
 }
 
-.pizza--picture {
+.pizza__picture {
   grid-column: span 2;
   width: 100%;
   border-radius: 50%;
   border: 5px solid rgba($red, 0.6);
 }
 
-.pizza--queue-number,
-.pizza--price {
+.pizza__queue-number,
+.pizza__price {
   text-align: right;
 }
 
@@ -146,10 +146,10 @@ footer {
   padding: 50px 10px;
 }
 
-.footer--address {
+.footer__address {
   font-style: normal;
 }
 
-.footer--address {
+.footer__address {
   font-style: normal;
 }

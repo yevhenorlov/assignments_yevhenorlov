@@ -1,4 +1,3 @@
-/* jshint node:true */
 'use strict';
 
 var gulp = require('gulp'),
@@ -64,7 +63,6 @@ gulp.task('Iconfont', function(){
       fontName: 'iconFont',
       prependUnicode: true,
       formats: ['ttf', 'eot', 'woff', 'svg'],
-      // timestamp: runTimestamp,
       normalize: true,
       fontWeight: '300',
       fontHeight: 100,
@@ -99,7 +97,6 @@ gulp.task('watch', function() {
     gulp.watch(['html-dev/*.html'], ['html']);
     gulp.watch(['assets/scss/**/*.scss'], ['sass']);
     gulp.watch(['assets/js/**/*.js'], ['scripts']);
-    // gulp.watch(['assets/img/icons/*.svg'], ['Iconfont']);
     gulp.watch(['assets/fonts/*.*'], ['fonts']);
     gulp.watch(['assets/img/**/*'], ['images']);
 });
@@ -107,49 +104,3 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', [ 'rebuild', 'serve', 'watch']);
-
-
-
-//to install modules run "npm install" (just one time for the project)
-
-//js minify example
-// to run "gulp index"
-// gulp.task('index', function () {
-//     gulp.src('assets/js/index.js')
-//         .pipe(minify({
-//             ext: {
-//                 src: '.js',
-//                 min: '-min.js'
-//             },
-//             // exclude: ['tasks'],
-//             // ignoreFiles: ['.combo.js', '-min.js']
-//         }))
-//         .pipe(gulp.dest('assets/js'))
-// });
-//
-//
-// // for multiple scripts
-// var source = {
-//     js : [
-//         "assets/js/dataTables.responsive.js",
-//         "assets/js/index.js",
-//         "assets/js/vue.js",
-//     ]
-// };
-//
-// // Scripts concat // to run "gulp scripts"
-// gulp.task('scripts', function() {
-//     gulp.src(source.js)
-//         .pipe(concat('scripts.min.js'))
-//         // .pipe(uglify())
-//         .pipe(gulp.dest('assets/js'));
-// });
-//
-//
-// // Scripts concat and minify // to run "gulp scripts-min"
-// gulp.task('scripts-min', function() {
-//     gulp.src(source.js)
-//         .pipe(concat('scripts.js'))
-//         .pipe(minify())
-//         .pipe(gulp.dest('assets/js'))
-// });
