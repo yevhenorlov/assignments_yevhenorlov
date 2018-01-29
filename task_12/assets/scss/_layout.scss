@@ -38,12 +38,13 @@ header {
   grid-template-columns: 250px minmax(200px, 1fr) 250px;
   align-items: center;
   justify-items: center;
-  padding: 20px 10px;
+  padding: 20px;
   margin-bottom: 40px;
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px 10px;
     > * {
       margin: 10px 0;
     }
@@ -79,7 +80,10 @@ header {
   @extend %btn;
 }
 main{
-  padding: 0 10px;
+  padding: 0 20px;
+  @media screen and (max-width: 700px){
+    padding: 0 10px;
+  }
 }
 .btn--add-pizza {
   @extend %btn;
@@ -143,7 +147,10 @@ footer {
   background: $black;
   background-image: url('../img/i-like-food.svg');
   background-attachment: fixed;
-  padding: 50px 10px;
+  padding: 50px 20px;
+  @media screen and (max-width: 700px){
+    padding: 50px 10px;
+  }
 }
 
 .footer__address {
