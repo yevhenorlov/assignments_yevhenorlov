@@ -22,12 +22,29 @@ class Skeleton extends Component {
     </div>
     </header>
     <main id="root">
-    <button type="button" class="btn--login-signup">
-      <span>
-        <span class="icon" aria-hidden="true">🍳</span>
-      Login / Signup
-      </span>
-    </button>
+      <div class="authorization-container">
+        <form id="login-form" action="">
+          <input type="text" name="login" placeholder="login">
+          <input type="password" name="password" placeholder="password">
+          <button type="button" class="btn--login-signup">
+            <span>
+              <span class="icon" aria-hidden="true">🍳</span>
+              Login
+            </span>
+          </button>
+        </form>
+        <form id="signup-form" class="hidden" action="">
+          <input type="text" name="login" placeholder="login">
+          <input type="password" name="password" placeholder="password">
+          <button type="button" class="btn--login-signup">
+            <span>
+              <span class="icon" aria-hidden="true">🍳</span>
+              Sign up
+            </span>
+          </button>
+        </form>
+      </div>
+
     </main>
     <footer>
     <address class="footer__address">

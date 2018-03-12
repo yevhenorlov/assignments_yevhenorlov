@@ -1,6 +1,6 @@
 import './scss/app.scss';
 import { Component } from './Framework';
-import Skeleton from './components/Skeleton';
+import Skeleton from './components/skeleton';
 //import { updateClock } from './utils';
 class App extends Component {
   constructor({ host }) {
