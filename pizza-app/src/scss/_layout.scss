@@ -15,7 +15,9 @@ body {
   font-size: 20px;
   line-height: 1.4;
   text-decoration-skip: ink;
-  background: $yellow;
+  background: $black;
+  background-image: url('/src/img/i-like-food.svg');
+  background-attachment: fixed;
   color: $white;
 }
 
@@ -30,9 +32,6 @@ a:visited {
 }
 
 header {
-  background: $black;
-  background-image: url('/src/img/i-like-food.svg');
-  background-attachment: fixed;
   width: 100vw;
   display: grid;
   grid-template-columns: 250px minmax(200px, 1fr) 250px;
@@ -59,7 +58,7 @@ header {
 .clock {
   justify-self: start;
   user-select: none;
-  font-family: "Fira Mono", monospace;
+  font-family: 'Fira Mono', monospace;
 }
 .logo {
   max-width: 100%;
@@ -79,10 +78,13 @@ header {
 .btn--login-signup {
   @extend %btn;
 }
-main{
+main {
   padding: 0 20px;
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     padding: 0 10px;
+  }
+  &.pizza-queue {
+    background: $yellow;
   }
 }
 .btn--add-pizza {
@@ -112,9 +114,9 @@ main{
   justify-content: space-between;
   background: $black;
   color: $white;
-  font-family: "Lobster", cursive;
+  font-family: 'Lobster', cursive;
   font-weight: 300;
-  &::before{
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -144,11 +146,8 @@ footer {
   justify-content: space-between;
   font-size: 16px;
   font-weight: 300;
-  background: $black;
-  background-image: url('/src/img/i-like-food.svg');
-  background-attachment: fixed;
   padding: 50px 20px;
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     padding: 50px 10px;
   }
 }
