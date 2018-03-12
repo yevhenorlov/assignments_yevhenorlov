@@ -1,16 +1,16 @@
-"use strict;";
+import './scss/app.scss';
 
 // move to a separate helpers library later
 Number.prototype.pad = function(size) {
   var s = String(this);
   while (s.length < (size || 2)) {
-    s = "0" + s;
+    s = '0' + s;
   }
   return s;
 };
 
 {
-  const clock = document.getElementById("clock");
+  const clock = document.getElementById('clock');
 
   function updateClock(clock) {
     var d = new Date(),
@@ -25,3 +25,5 @@ Number.prototype.pad = function(size) {
     updateClock(clock);
   }, 500);
 }
+
+export default App;
