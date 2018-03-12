@@ -31,7 +31,7 @@ a:visited {
 
 header {
   background: $black;
-  background-image: url('../img/i-like-food.svg');
+  background-image: url('/src/img/i-like-food.svg');
   background-attachment: fixed;
   width: 100vw;
   display: grid;
@@ -145,7 +145,7 @@ footer {
   font-size: 16px;
   font-weight: 300;
   background: $black;
-  background-image: url('../img/i-like-food.svg');
+  background-image: url('/src/img/i-like-food.svg');
   background-attachment: fixed;
   padding: 50px 20px;
   @media screen and (max-width: 700px){

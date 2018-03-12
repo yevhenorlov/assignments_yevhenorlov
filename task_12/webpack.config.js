@@ -44,7 +44,7 @@ const config = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: '[name].[ext]', outputPath: './img/' },
+            options: { name: '[name].[ext]', outputPath: 'img/' },
           },
         ],
       },
@@ -53,11 +53,11 @@ const config = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
       },
-      {
+      /*{
         // svg-loader
         test: /\.svg$/,
         use: ['svg-loader'],
-      },
+      },*/
     ],
   },
   plugins: [
