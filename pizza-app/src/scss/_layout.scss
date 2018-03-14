@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
@@ -55,11 +56,13 @@ header {
     }
   }
 }
+
 .clock {
   justify-self: start;
   user-select: none;
   font-family: 'Fira Mono', monospace;
 }
+
 .logo {
   max-width: 100%;
   opacity: 0.8;
@@ -68,16 +71,20 @@ header {
     opacity: 1;
   }
 }
+
 .logo__img {
   max-width: 300px;
   width: 100%;
 }
+
 .login-signup {
   justify-self: end;
 }
+
 .btn--login-signup {
   @extend %btn;
 }
+
 main {
   padding: 0 20px;
   @media screen and (max-width: 700px) {
@@ -87,6 +94,7 @@ main {
     background: $yellow;
   }
 }
+
 .btn--add-pizza {
   @extend %btn;
   display: block;
@@ -98,12 +106,14 @@ main {
     color: $yellow;
   }
 }
+
 .pizzas {
   padding: 40px 0;
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
+
 .pizza {
   position: relative;
   padding: 15px 30px;
@@ -149,31 +159,6 @@ footer {
   padding: 50px 20px;
   @media screen and (max-width: 700px) {
     padding: 50px 10px;
-  }
-}
-input {
-  padding: 20px 40px;
-  margin: 5px;
-  border: none; 
-  text-transform: uppercase;
-  background: $white;
-}
-.authorization-container {
-  max-width: 600px;
-  padding: 20px;
-  margin: auto;
-  form {
-    text-align: center;
-    background: $black;
-    border: 5px solid $purple;
-    padding: 40px;
-    &.hidden {
-      display: none;
-    }
-  }
-  button {
-    display: block;
-    margin: 20px auto 0;
   }
 }
 
