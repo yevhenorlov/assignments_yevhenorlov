@@ -39,7 +39,7 @@ header {
   align-items: center;
   justify-items: center;
   padding: 20px;
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
@@ -90,9 +90,28 @@ main {
   @media screen and (max-width: 700px) {
     padding: 0 10px;
   }
-  &.pizza-queue {
-    background: $yellow;
+}
+
+.pizza-queue-container {
+  position: relative;
+  padding: 40px 0;
+  background: $yellow;
+  &:before,
+  &:after {
+    content: '';
+    background: inherit;
+    position: absolute;
+    width: 50vw;
+    height: 100%;
   }
+  &:before{
+    top: 0;
+    right: 100%;
+    }
+  &:after{
+    top: 0;
+    left: 100%;
+    }
 }
 
 .btn--add-pizza {
