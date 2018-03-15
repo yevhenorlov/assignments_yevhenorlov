@@ -15,9 +15,8 @@ class Router extends Component {
       currentComponent: null,
     };
 
-    bindAll(this, 'handleUrlChange');
+    bindAll(this, 'handleUrlChange', 'navigateTo');
 
-    console.log(props);
     window.addEventListener('hashchange', () => {
       this.handleUrlChange(this.path);
     });
@@ -28,11 +27,19 @@ class Router extends Component {
   }
 
   handleUrlChange(path) {
-    const { routes } = this.state;
+    const { routes, currentRoute } = this.state;
 
     const nextRoute = routes.find(({ href }) => href === this.path);
 
-    if (nextRoute) {
+    if (nextRoute && nextRoute !== currentRoute) {
+      if (nextRoute.onEnter) {
+        this.handleOnEnter(nextRoute);
+        return;
+      }
+      if (nextRoute.redirectTo) {
+        this.navigateTo(nextRoute.redirectTo);
+        return;
+      }
       this.updateState({
         activeComponent: new nextRoute.component(),
         currentRoute: nextRoute,
@@ -40,7 +47,15 @@ class Router extends Component {
       console.log(this.state);
     } else {
       console.log('route not found');
-      }
+    }
+  }
+
+  navigateTo(url) {
+    window.location.hash = url;
+  }
+
+  handleOnEnter({ onEnter }) {
+    onEnter(this.navigateTo);
   }
 
   render() {

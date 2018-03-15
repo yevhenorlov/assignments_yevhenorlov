@@ -12,13 +12,11 @@ class Component {
 
   updateState(nextState) {
     this.state = Object.assign({}, this.state, nextState);
-    console.log('Component.js updateState()', this.state);
     this._render();
   }
 
   update(nextProps) {
     this.props = nextProps;
-    console.log('Component.js update()', this.props);
     return this._render();
   }
 

@@ -5,6 +5,12 @@ const routes = [
   {
     component: PizzaQueue,
     href: '/',
+    redirectTo: '/login',
+    // onEnter: (navigateTo, state) => {
+    //   if (true) {
+    //     navigateTo('/login');
+    //   }
+    // },
   },
   {
     component: Login,

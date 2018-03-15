@@ -93,25 +93,12 @@ main {
 }
 
 .pizza-queue-container {
-  position: relative;
-  padding: 40px 0;
+  @extend %full-width;
+  padding: 40px 20px;
   background: $yellow;
-  &:before,
-  &:after {
-    content: '';
-    background: inherit;
-    position: absolute;
-    width: 50vw;
-    height: 100%;
+  @media screen and (max-width: 700px) {
+    padding: 20px 10px;
   }
-  &:before{
-    top: 0;
-    right: 100%;
-    }
-  &:after{
-    top: 0;
-    left: 100%;
-    }
 }
 
 .btn--add-pizza {

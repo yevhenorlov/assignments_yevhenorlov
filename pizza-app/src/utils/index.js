@@ -32,3 +32,7 @@ export const bindAll = (context, ...names) => {
     }
   });
 };
+
+const isUrlParam = path => URL_PARAM_REGEXP.test(path);
+const urlToRegExp = url => RegExp(`^${url.replace(URL_PARAM_REGEXP, '(.*)')}$`);
+export const isEqualPaths = (template, url) => urlToRegExp(template).test(url);
