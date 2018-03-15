@@ -5,7 +5,7 @@ class Component {
     this.props = props || {};
     this.state = {};
 
-    // bindAll(this, '');
+    bindAll(this, 'updateState', 'update');
 
     this.host = null;
   }
@@ -15,7 +15,10 @@ class Component {
     this._render();
   }
 
+  componentReceivedProps(props) {}
+
   update(nextProps) {
+    this.componentReceivedProps(nextProps);
     this.props = nextProps;
     return this._render();
   }

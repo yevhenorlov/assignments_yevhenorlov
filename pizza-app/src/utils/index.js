@@ -1,3 +1,4 @@
+const URL_PARAM_REGEXP = /:\w+/g;
 // TODO: redo as a separate utility method (extending native prototypes is not a
 // good idea)
 Number.prototype.pad = function(size) {
@@ -34,5 +35,25 @@ export const bindAll = (context, ...names) => {
 };
 
 const isUrlParam = path => URL_PARAM_REGEXP.test(path);
-const urlToRegExp = url => RegExp(`^${url.replace(URL_PARAM_REGEXP, '(.*)')}$`);
+const urlToRegExp = url =>
+  RegExp(`^${url.replace(URL_PARAM_REGEXP, '([^/]+)')}$`);
 export const isEqualPaths = (template, url) => urlToRegExp(template).test(url);
+
+export const extractUrlParams = (template, url) => {
+  const values = url.split('/');
+  const params = {};
+
+  if (!values) {
+    return params;
+  }
+
+  return template.split('/').reduce((acc, param, index) => {
+    if (!isUrlParam(param)) {
+      return acc;
+    }
+    // removing ':' from param name
+    acc[param.slice(1)] = values[index];
+
+    return acc;
+  }, params);
+};

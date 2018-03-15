@@ -4,8 +4,10 @@ import Login from './components/Login';
 const routes = [
   {
     component: PizzaQueue,
-    href: '/',
-    redirectTo: '/login',
+    href: '/user/:id',
+    
+    // redirectTo: '/login',
+
     // onEnter: (navigateTo, state) => {
     //   if (true) {
     //     navigateTo('/login');

@@ -1,5 +1,5 @@
 import Component from './Component';
-import { bindAll } from '../utils';
+import { bindAll, isEqualPaths, extractUrlParams } from '../utils';
 
 class Router extends Component {
   constructor(props) {
@@ -29,7 +29,8 @@ class Router extends Component {
   handleUrlChange(path) {
     const { routes, currentRoute } = this.state;
 
-    const nextRoute = routes.find(({ href }) => href === this.path);
+    //const nextRoute = routes.find(({ href }) => href === this.path);
+    const nextRoute = routes.find(({ href }) => isEqualPaths(href, this.path));
 
     if (nextRoute && nextRoute !== currentRoute) {
       if (nextRoute.onEnter) {
@@ -44,9 +45,6 @@ class Router extends Component {
         activeComponent: new nextRoute.component(),
         currentRoute: nextRoute,
       });
-      console.log(this.state);
-    } else {
-      console.log('route not found');
     }
   }
 
@@ -59,8 +57,10 @@ class Router extends Component {
   }
 
   render() {
-    const { activeComponent } = this.state;
-    return activeComponent.update();
+    const { activeComponent, currentRoute } = this.state;
+    return activeComponent.update({
+      params: extractUrlParams(currentRoute.href, this.path),
+    });
   }
 }
 

@@ -7,7 +7,6 @@ class PizzaQueue extends Component {
     this.host = document.createElement('div');
     this.host.classList.add('pizza-queue-container');
   }
-
   render() {
     return `
     <button class="btn--add-pizza">
