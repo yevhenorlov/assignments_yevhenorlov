@@ -18,8 +18,19 @@ class Login extends Component {
       <div class="authorization-container__inner">
         <form id="login-form" class="front" action="">
           <p>First time? <a href="#signup" class="flip-btn">Sign up.</a></p>
-          <input type="text" name="login" placeholder="login">
-          <input type="password" name="password" placeholder="password">
+          <fieldset>
+            <legend>Store</legend>
+            <select name="store__login">
+            <option>1</option>
+            <option>2</option>
+            </select>
+            <input type="password" name="store__password" placeholder="password">
+          </fieldset>
+          <fieldset>
+            <legend>User</legend>
+            <input type="text" name="login" placeholder="login">
+            <input type="password" name="password" placeholder="password">
+          </fieldset>
           <button type="button" class="btn--login-signup">
             <span>
               <span class="icon" aria-hidden="true">🍳</span>
@@ -29,8 +40,19 @@ class Login extends Component {
         </form>
         <form id="signup-form" class="back" action="">
           <p>Already have an account? <a href="#login" class="flip-btn">Log in.</a></p>
-          <input type="text" name="login" placeholder="login">
-          <input type="password" name="password" placeholder="password">
+          <fieldset>
+            <legend>Store</legend>
+            <select name="store__login">
+            <option>1</option>
+            <option>2</option>
+            </select>
+            <input type="password" name="store__password" placeholder="password">
+          </fieldset>
+          <fieldset>
+            <legend>User</legend>
+            <input type="text" name="login" placeholder="login">
+            <input type="password" name="password" placeholder="password">
+          </fieldset>
           <button type="button" class="btn--login-signup">
             <span>
               <span class="icon" aria-hidden="true">🍳</span>
